@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" [formGroup]="pessoaForm" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label position="floating">Nome:</ion-label>
+      <br>
+      <small *ngIf="(pessoaForm.get('nome').errors?.required || pessoaForm.get('nome').errors?.minlength || pessoaForm.get('nome').errors?.maxlength) && form.submitted">Informe um nome válido de 3 a 40 caracteres.</small>
+      <ion-input [(ngModel)]="pessoa.nome" formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">E-mail:</ion-label>
+      <br>
+      <small *ngIf="(pessoaForm.get('email').errors?.required || pessoaForm.get('email').errors?.email) && form.submitted">Informe um email válido.</small>
+      <ion-input [(ngModel)]="pessoa.email" formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit">Confirmar</ion-button>
+  </form>
+</ion-content>

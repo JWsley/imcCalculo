@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-icon   class="pointer" name="ellipsis-vertical-outline"></ion-icon>
+    <ion-title class="title">FitnessSQN</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div  class="container">
+    <div class="operacao">
+        <img  class="card"  src="assets/img/card.jpeg" alt="">
+     <form [formGroup]="imcForm" (submit)="enviar()">
+
+       <ion-item lines="none">
+         <ion-icon name="accessibility-outline">></ion-icon>
+         <ion-input placeholder="Peso em quilogramas" formControlName="peso" [(ngModel)]="peso" name="peso"></ion-input>
+       </ion-item>
+       <ion-item lines="none">
+         <ion-icon name="arrow-up-outline"></ion-icon>
+         <ion-input  placeholder="Altura em metros" formControlName="altura"  [(ngModel)]="altura" name="altura"></ion-input>
+       </ion-item>
+       <button class="start" (click)="imc()"  type="submit"   >Calcular</button>
+      </form>
+           </div>
+
+    <div class="resultado">
+      <ion-item class="exib">
+        <span class="lbl"><h3 class="sub">Resultado:</h3>
+        <p class="r" >{{imc_valor}}</p></span>
+      </ion-item>
+
+      <div class="image">
+        <ion-img class="imag"  src="{{image}}" alt=""></ion-img>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
